@@ -16,7 +16,7 @@ spring:
       suffix: ".jsp"
   
   datasource:
-    url: jdbc:mysql:// localhost:3306/ex?characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/ex?characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -32,8 +32,6 @@ spring:
       
 server:
  port: 8080
- tomcat:
-    file-encoding: UTF-8
     
  servlet:
     encoding:
@@ -51,5 +49,8 @@ server:
         enabled: false 
         
 mybatis:
-  type-aliases-package: com.lcomputerstudy.example.domain
+  type-aliases-package: com.lcomputerstudy4.example.domain
   mapper-locations: mapper/**/*.xml
+  
+logging:
+  config: classpath:logback-spring.xml  
