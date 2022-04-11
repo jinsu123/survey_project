@@ -37,7 +37,7 @@
 		     	<h2>내 설문</h2>
 		     		
 					<br>
-					<a href="/survey/make">설문 만들기</a>
+					<a href="/make_survey">설문 만들기</a>
         </sec:authorize>
 	     
 		

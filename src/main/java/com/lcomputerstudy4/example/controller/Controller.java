@@ -82,5 +82,10 @@ public class Controller {
 		return "/denied";
 	}
 
+
+	@RequestMapping("/make_survey")
+	public String makesurvey() {
+		return "/makesurvey";
+	}
 	
 }
