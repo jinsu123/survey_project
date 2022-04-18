@@ -69,6 +69,21 @@ $(document).on('click', '.deleteExample', function () {
 	$(this).remove();
 });
 
+$(document).on('click', '.submit', function(){
+
+	let survey = {
+			sTitle : $(".survey").val(),
+			itemlist : []
+	};
+	
+	let question = {
+				
+			}
+	
+	console.log(survey);
+})
+
+
 </script>
 </body>
 </html>
