@@ -13,6 +13,8 @@
 		<hr>
 			<input type="text" placeholder="제목 없는 설문지" class = "survey">
 			<br>
+			<input type="text" placeholder="부가설명" class = "sContent">
+			<br>
 			<div class="question">
 				<br>
 				<input type="text" name="" placeholder="질문" >
@@ -73,29 +75,34 @@ $(document).on('click', '.submit', function(){
 
 	let survey = {
 			sTitle : $(".survey").val(),
-			itemlist : []
+			sContent: $(".sContent").val(),
+			questionlist : []
 	};
 	
 	let questionList = [];
 	$('.question').each(function(){
 			let itemList = [];
-			$(this).find('.item').each(function(){
+			let $itemObj = $(this).find('.item');
+			$itemObj.each(function(){
 					let item = {
-								iContent : $(".item").val()
+								iContent : $(this).children().first().next().next().next().next().next().find('.item').val()
 								}
 								itemList.push(item);
 			});
 			let question = {
-							qContent : $(".question").children().first().next().val(),
-							qKind : $(".question").children().first().next().next().next().val(),
+							qContent : $(this).children().first().next().val(),
+							qKind : $(this).children().first().next().next().next().val(),
 							itemList : itemList
 			}
 			questionList.push(question);
-		
 
 
-		
 	});
+
+	
+
+			
+
 
 	console.log(survey);
 	console.log(questionList);
