@@ -73,11 +73,7 @@ $(document).on('click', '.deleteItem', function () {
 
 $(document).on('click', '.submit', function(){
 
-	let survey = {
-			sTitle : $(".survey").val(),
-			sContent: $(".sContent").val(),
-			questionlist : []
-	};
+
 	
 	let questionList = [];
 	$('.question').each(function(){
@@ -85,9 +81,9 @@ $(document).on('click', '.submit', function(){
 			let $itemObj = $(this).find('.item');
 			$itemObj.each(function(){
 					let item = {
-								iContent : $(this).children().first().next().next().next().next().next().find('.item').val()
-								}
-								itemList.push(item);
+								iContent : $(this).val()
+					}
+					itemList.push(item);
 			});
 			let question = {
 							qContent : $(this).children().first().next().val(),
@@ -99,14 +95,17 @@ $(document).on('click', '.submit', function(){
 
 	});
 
-	
+	let survey = {
+			sTitle : $(".survey").val(),
+			sContent: $(".sContent").val(),
+			questionList : questionList
+	};
 
-			
+
 
 
 	console.log(survey);
-	console.log(questionList);
-})
+});
 
 
 </script>

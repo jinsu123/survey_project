@@ -83,9 +83,15 @@ public class Controller {
 	}
 
 
-	@RequestMapping("/make_survey")
+	@RequestMapping("/make/survey")
 	public String makesurvey() {
 		return "/makesurvey";
+	}	
+	
+	@RequestMapping("/insert/survey")
+	public String insertsurvey() {
+		return "/insertsurvey";
 	}
+	
 	
 }
