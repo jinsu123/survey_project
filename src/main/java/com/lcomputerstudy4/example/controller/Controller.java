@@ -4,12 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.lcomputerstudy4.example.domain.Survey;
 import com.lcomputerstudy4.example.domain.User;
+import com.lcomputerstudy4.example.service.SurveyService;
 import com.lcomputerstudy4.example.service.UserService;
 
 @org.springframework.stereotype.Controller
@@ -18,6 +21,7 @@ public class Controller {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired UserService userservice;
+	@Autowired SurveyService surveyservice;
 
 	
 	@RequestMapping("/")
@@ -89,8 +93,14 @@ public class Controller {
 	}	
 	
 	@RequestMapping("/insert/survey")
-	public String insertsurvey() {
-		return "/insertsurvey";
+	public String insertProcess(Survey survey, Authentication authentication) {
+		
+		User user = (User)authentication.getPrincipal();
+		survey.setUser(user);
+		survey.setuIdx(user.getuIdx());
+		surveyservice.insertProcess(survey);
+		
+		return "/insertProcess";
 	}
 	
 	

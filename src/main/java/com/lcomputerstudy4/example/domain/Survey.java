@@ -5,8 +5,9 @@ public class Survey {
 	private int sIdx;
 	private int uIdx;
 	private String sTitle;
+	private String sContent;
 	private String sDatetime;
-	
+	private User user;
 	
 	public final int getsIdx() {
 		return sIdx;
@@ -31,5 +32,17 @@ public class Survey {
 	}
 	public final void setsDatetime(String sDatetime) {
 		this.sDatetime = sDatetime;
+	}
+	public final User getUser() {
+		return user;
+	}
+	public final void setUser(User user) {
+		this.user = user;
+	}
+	public final String getsContent() {
+		return sContent;
+	}
+	public final void setsContent(String sContent) {
+		this.sContent = sContent;
 	}
 }

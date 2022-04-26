@@ -7,24 +7,35 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails{
 	
+
+
 	private static final long serialVersionUID = 1L;
 	
 	private String username;
 	private String password;
 	private String uName;
 	private String uDateTime;
-
+	private int uIdx;
+	
 	private Collection<? extends GrantedAuthority> authorities;
 	
 	private boolean isAccountNonExpired;
 	private boolean isAccountNonLocked;
 	private boolean isCredentialsNonExpired;
 	private boolean isEnabled;
-	
-	
-	
-	
 
+
+	
+	
+	
+	
+	public final int getuIdx() {
+		return uIdx;
+	}
+
+	public final void setuIdx(int uIdx) {
+		this.uIdx = uIdx;
+	}
 
 
 	public void setUsername(String username) {
@@ -111,5 +122,8 @@ public class User implements UserDetails{
 				+ ", isAccountNonLocked=" + isAccountNonLocked + ", isCredentialsNonExpired=" + isCredentialsNonExpired
 				+ ", isEnabled=" + isEnabled + "]";
 	}
-	
+
+
+
+
 }

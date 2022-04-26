@@ -105,6 +105,18 @@ $(document).on('click', '.submit', function(){
 
 
 	console.log(survey);
+
+	let surveyresult = JSON.stringify(survey); 
+
+	$.ajax({
+		 type : "post",
+		 url : "/insert/survey", 
+		 data : surveyresult, 
+		 dataType : "json" 
+		 
+	 });
+
+	
 });
 
 
