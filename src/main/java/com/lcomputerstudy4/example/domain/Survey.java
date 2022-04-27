@@ -1,5 +1,7 @@
 package com.lcomputerstudy4.example.domain;
 
+import java.util.List;
+
 public class Survey {
 
 	private int sIdx;
@@ -8,6 +10,12 @@ public class Survey {
 	private String sContent;
 	private String sDatetime;
 	private User user;
+	private String qKind;
+	private String qContent;
+	private String iContent;
+	private int qIdx;
+	List<Question> questionList;
+	
 	
 	public final int getsIdx() {
 		return sIdx;
@@ -44,5 +52,35 @@ public class Survey {
 	}
 	public final void setsContent(String sContent) {
 		this.sContent = sContent;
+	}
+	public final List<Question> getQuestionList() {
+		return questionList;
+	}
+	public final void setQuestionList(List<Question> questionList) {
+		this.questionList = questionList;
+	}
+	public final String getqKind() {
+		return qKind;
+	}
+	public final void setqKind(String qKind) {
+		this.qKind = qKind;
+	}
+	public final String getqContent() {
+		return qContent;
+	}
+	public final void setqContent(String qContent) {
+		this.qContent = qContent;
+	}
+	public final int getqIdx() {
+		return qIdx;
+	}
+	public final void setqIdx(int qIdx) {
+		this.qIdx = qIdx;
+	}
+	public final String getiContent() {
+		return iContent;
+	}
+	public final void setiContent(String iContent) {
+		this.iContent = iContent;
 	}
 }

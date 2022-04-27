@@ -1,5 +1,7 @@
 package com.lcomputerstudy4.example.domain;
 
+import java.util.List;
+
 public class Question {
 
 	
@@ -7,6 +9,7 @@ public class Question {
 	private int sIdx;
 	private String qContent;
 	private String qKind;
+	private List<Item> itemList;
 	
 	
 	public final int getqIdx() {
@@ -32,6 +35,12 @@ public class Question {
 	}
 	public final void setqKind(String qKind) {
 		this.qKind = qKind;
+	}
+	public final List<Item> getItemList() {
+		return itemList;
+	}
+	public final void setItemList(List<Item> itemList) {
+		this.itemList = itemList;
 	}
 	
 	

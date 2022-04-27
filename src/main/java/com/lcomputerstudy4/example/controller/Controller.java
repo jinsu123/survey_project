@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lcomputerstudy4.example.domain.Survey;
@@ -93,7 +94,7 @@ public class Controller {
 	}	
 	
 	@RequestMapping("/insert/survey")
-	public String insertProcess(Survey survey, Authentication authentication) {
+	public String insertProcess(@RequestBody Survey survey, Authentication authentication) {
 		
 		User user = (User)authentication.getPrincipal();
 		survey.setUser(user);

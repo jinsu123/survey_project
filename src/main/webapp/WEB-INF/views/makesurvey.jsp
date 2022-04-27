@@ -104,18 +104,28 @@ $(document).on('click', '.submit', function(){
 
 
 
-	console.log(survey);
+	console.dir(survey);
 
-	let surveyresult = JSON.stringify(survey); 
+
 
 	$.ajax({
 		 type : "post",
+		 contentType : 'application/json',
 		 url : "/insert/survey", 
-		 data : surveyresult, 
-		 dataType : "json" 
-		 
+		 data : JSON.stringify(survey), 
+		 success : successCall,
+		 error : errorCall
 	 });
+	 
 
+	
+	function successCall(){
+		alert("전송성공");
+	}
+
+	function errorCall(){
+		alert("전송실패");
+	}
 	
 });
 
