@@ -113,15 +113,15 @@ $(document).on('click', '.submit', function(){
 		 contentType : 'application/json',
 		 url : "/insert/survey", 
 		 data : JSON.stringify(survey), 
-		 success : successCall,
+		 success: function(data) {
+				let url = "/";
+				location.replace(url);
+		 },
 		 error : errorCall
 	 });
 	 
 
 	
-	function successCall(){
-		alert("전송성공");
-	}
 
 	function errorCall(){
 		alert("전송실패");

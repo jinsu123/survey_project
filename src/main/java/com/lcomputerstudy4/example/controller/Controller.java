@@ -1,5 +1,7 @@
 package com.lcomputerstudy4.example.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lcomputerstudy4.example.domain.Survey;
 import com.lcomputerstudy4.example.domain.User;
+import com.lcomputerstudy4.example.mapper.SurveyMapper;
 import com.lcomputerstudy4.example.service.SurveyService;
 import com.lcomputerstudy4.example.service.UserService;
 
@@ -26,12 +29,14 @@ public class Controller {
 
 	
 	@RequestMapping("/")
-	public String home(Model model) {
+	public String home(Model model, Survey survey) {
 		
 		logger.debug("debug");
 	    logger.info("info");
 	    logger.error("error");
 
+	    List<Survey> list = surveyservice.surveyList();
+	    model.addAttribute("list", list);
 		return "/index";
 	}
 	
@@ -90,18 +95,19 @@ public class Controller {
 
 	@RequestMapping("/make/survey")
 	public String makesurvey() {
+		
 		return "/makesurvey";
 	}	
 	
 	@RequestMapping("/insert/survey")
-	public String insertProcess(@RequestBody Survey survey, Authentication authentication) {
+	public String insertProcess(Model model,@RequestBody Survey survey, Authentication authentication) {
 		
 		User user = (User)authentication.getPrincipal();
 		survey.setUser(user);
 		survey.setuIdx(user.getuIdx());
 		surveyservice.insertProcess(survey);
 		
-		return "/insertProcess";
+		return "/index";
 	}
 	
 	

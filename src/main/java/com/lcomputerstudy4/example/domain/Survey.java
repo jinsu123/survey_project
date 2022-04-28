@@ -10,10 +10,7 @@ public class Survey {
 	private String sContent;
 	private String sDatetime;
 	private User user;
-	private String qKind;
-	private String qContent;
-	private String iContent;
-	private int qIdx;
+	private Question question;
 	List<Question> questionList;
 	
 	
@@ -59,28 +56,11 @@ public class Survey {
 	public final void setQuestionList(List<Question> questionList) {
 		this.questionList = questionList;
 	}
-	public final String getqKind() {
-		return qKind;
+	public final Question getQuestion() {
+		return question;
 	}
-	public final void setqKind(String qKind) {
-		this.qKind = qKind;
+	public final void setQuestion(Question question) {
+		this.question = question;
 	}
-	public final String getqContent() {
-		return qContent;
-	}
-	public final void setqContent(String qContent) {
-		this.qContent = qContent;
-	}
-	public final int getqIdx() {
-		return qIdx;
-	}
-	public final void setqIdx(int qIdx) {
-		this.qIdx = qIdx;
-	}
-	public final String getiContent() {
-		return iContent;
-	}
-	public final void setiContent(String iContent) {
-		this.iContent = iContent;
-	}
+
 }

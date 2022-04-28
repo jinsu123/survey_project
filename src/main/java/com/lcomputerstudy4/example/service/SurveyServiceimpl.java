@@ -1,5 +1,7 @@
 package com.lcomputerstudy4.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,10 @@ public class SurveyServiceimpl implements SurveyService{
 		surveyMapper.insertQuestion(survey);
 		surveyMapper.insertItem(survey);
 	}
-	
-	
+	@Override
+	public List<Survey> surveyList(){
+		return surveyMapper.surveyList();
+	}
 	
 	
 }

@@ -1,5 +1,7 @@
 package com.lcomputerstudy4.example.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.lcomputerstudy4.example.domain.Survey;
@@ -12,4 +14,6 @@ public interface SurveyMapper {
 	public void insertItem(Survey survey);
 
 	public void insertQuestion(Survey survey);
+
+	public List<Survey> surveyList();
 }

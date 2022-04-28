@@ -10,6 +10,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+table{
+		border-collapse:collapse;
+	}
+	table tr th{
+		font-weight:700;
+	}
+	table tr td, table tr th{
+	
+		width:20%;
+		text-align:left;
+	}
+	th{
+		background-color:#b0e0e6;
+	}
+	
+	
+</style>
 <body>
 	<h1>Google Survey</h1>
 	<hr>
@@ -38,14 +56,23 @@
 		     		
 					<br>
 					<a href="/make/survey">설문 만들기</a>
-        </sec:authorize>
+
 	     
 		
 	 <hr>
 	 	<h2>설문 참여하기</h2>
 	 		<table>
-		     	
+		<tr>
+			<th>이름</th>
+			<th>작성일</th>
+		</tr>
+		<c:forEach items="${list}" var="list">
+			<tr>
+				<td>${list.sTitle}</td>
+				<td>${list.sDatetime}</td>
+			</tr>
+		</c:forEach>
 			</table>
-
+     </sec:authorize>
 </body>
 </html>

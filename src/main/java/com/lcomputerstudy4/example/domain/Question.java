@@ -9,6 +9,7 @@ public class Question {
 	private int sIdx;
 	private String qContent;
 	private String qKind;
+	private Item item;
 	private List<Item> itemList;
 	
 	
@@ -41,6 +42,12 @@ public class Question {
 	}
 	public final void setItemList(List<Item> itemList) {
 		this.itemList = itemList;
+	}
+	public final Item getItem() {
+		return item;
+	}
+	public final void setItem(Item item) {
+		this.item = item;
 	}
 	
 	
