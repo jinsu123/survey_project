@@ -29,13 +29,22 @@ public class Controller {
 
 	
 	@RequestMapping("/")
-	public String home(Model model, Survey survey) {
+	public String home(Model model, Survey survey,  Authentication authentication) {
 		
 		logger.debug("debug");
 	    logger.info("info");
 	    logger.error("error");
-
+	    
+	    
+	    
+		
 	    List<Survey> list = surveyservice.surveyList();
+	    User user = (User)authentication.getPrincipal();
+		survey.setUser(user);
+		survey.setuIdx(user.getuIdx());
+		list.add(survey);
+	    
+	    
 	    model.addAttribute("list", list);
 		return "/index";
 	}
@@ -109,6 +118,14 @@ public class Controller {
 		
 		return "/index";
 	}
+	
+	@RequestMapping("/detail/survey")
+	public String surveyDetail(Model model, Survey survey) {
+		
+		
+		return "/surveyDetail";
+	}	
+	
 	
 	
 }

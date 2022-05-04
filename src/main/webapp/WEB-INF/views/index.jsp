@@ -37,7 +37,6 @@ table{
 			<a href="/beforeSignUp">회원가입</a>
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
-	    	<a href="/logout">로그아웃</a>
 	    	<sec:authentication property="principal" var="principal"/>
 	    	<h2>${principal.uName}님</h2>
 	    </sec:authorize>
@@ -63,12 +62,12 @@ table{
 	 	<h2>설문 참여하기</h2>
 	 		<table>
 		<tr>
-			<th>이름</th>
+			<th>제목</th>
 			<th>작성일</th>
 		</tr>
 		<c:forEach items="${list}" var="list">
 			<tr>
-				<td>${list.sTitle}</td>
+				<td><a href="/detail/survey?s_idx=${list.sIdx}">${list.sTitle}</a></td>
 				<td>${list.sDatetime}</td>
 			</tr>
 		</c:forEach>

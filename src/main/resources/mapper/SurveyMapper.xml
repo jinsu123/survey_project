@@ -25,7 +25,11 @@
 	  	      
 		insert into sur_survey( s_title, s_content,  u_idx)
 		VALUES(#{sTitle}, #{sContent}, #{uIdx} )
-		  	
+		
+		
+		<selectKey keyProperty="sIdx" resultType="int" order="AFTER">
+    		SELECT LAST_INSERT_ID()
+	  	</selectKey>
 	
 	</insert>
 	
@@ -36,27 +40,29 @@
 		<!-- Question 등록하기  -->
 	<insert id="insertQuestion" >
 	  	      
-		insert into sur_question( q_kind, q_content,  s_idx)
-		VALUES
-	 	  <foreach collection="questionList" item="item" index="index" separator=" , ">
-	         			(#{item.qKind}, #{item.qContent},
-		         			 (SELECT      s_idx 
-								  FROM        sur_survey
-								  ORDER BY 	  s_idx DESC
-								  LIMIT 1)
-	         			)
-	      </foreach>		
+		insert into sur_question( q_kind, q_content, s_idx)
+		VALUES (#{qKind}, #{qContent}, #{sIdx})
+	
+		<selectKey keyProperty="qIdx" resultType="int" order="AFTER">
+	   		SELECT LAST_INSERT_ID()
+	  	</selectKey>
 	
 	</insert>
+	
 	
 	<!-- Item 등록하기  -->
 	<insert id="insertItem"  >
 	  	      
 		insert into sur_item( q_idx, i_content,  s_idx)
-		VALUES(#{question.qIdx}, #{question.iContent}, #{sIdx} )
+		VALUES
+		<foreach collection="itemList" item="item" index="index" separator=" , ">
+					         			( #{qIdx}, #{item.iContent}, #{sIdx})
+		</foreach>		
+	
 		  	
 	
 	</insert>
+
 
 
 </mapper>
