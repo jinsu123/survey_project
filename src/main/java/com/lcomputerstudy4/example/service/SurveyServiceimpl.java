@@ -25,10 +25,15 @@ public class SurveyServiceimpl implements SurveyService{
 			}
 		}
 	}
+
 	@Override
 	public List<Survey> surveyList(){
 		return surveyMapper.surveyList();
 	}
 	
+	@Override
+	public List<Survey> mySurveyList(Survey survey){
+		return surveyMapper.mySurveyList(survey);
+	}
 	
 }

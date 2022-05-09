@@ -12,7 +12,8 @@
 
    <!-- 회원 불러오기 -->
    <select id="readUser" parameterType="String" resultType="User">
-      SELECT         u_id                 						    as   username,
+      SELECT         		 u_idx						as uIdx,
+      						 u_id                 						    as   username,
 			                 u_password             					as password,
 			                 u_name                						as   uName,
 			                 u_isAccountNonExpired        as isAccountNonExpired,
@@ -43,16 +44,21 @@
          #{isCredentialsNonExpired},
          #{isEnabled}
       )
+      
+        <selectKey keyProperty="uIdx" resultType="int" order="AFTER">
+	    		SELECT LAST_INSERT_ID()
+	  	</selectKey>
    </insert>   
    
     <!-- 유저 권한 추가 -->
     <insert id="createAuthority" parameterType="org.springframework.security.core.GrantedAuthority">
        INSERT INTO sur_auth (
           u_id,
-          u_auth
+          u_auth,
+          u_idx
        ) VALUES
          <foreach item="authority" index="index" collection="authorities" separator=",">
-            (#{username}, #{authority.role})
+            (#{username}, #{authority.role}, #{uIdx})
          </foreach>
          ON DUPLICATE KEY
          UPDATE

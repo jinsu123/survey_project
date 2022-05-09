@@ -52,6 +52,18 @@ table{
 	<sec:authorize access="isAuthenticated()">
 	     	<hr>
 		     	<h2>내 설문</h2>
+		     		<table>
+						<tr>		
+							<th>제목</th>
+							<th>작성일</th>
+						</tr>
+						<c:forEach items="${myList}" var="myList">
+							<tr>
+								<td><a href="/detail/mySurvey?s_idx=${myList.sIdx}">${myList.sTitle}</a></td>
+								<td>${myList.sDatetime}</td>
+							</tr>
+						</c:forEach>
+					</table>
 		     		
 					<br>
 					<a href="/make/survey">설문 만들기</a>
@@ -61,16 +73,16 @@ table{
 	 <hr>
 	 	<h2>설문 참여하기</h2>
 	 		<table>
-		<tr>
-			<th>제목</th>
-			<th>작성일</th>
-		</tr>
-		<c:forEach items="${list}" var="list">
-			<tr>
-				<td><a href="/detail/survey?s_idx=${list.sIdx}">${list.sTitle}</a></td>
-				<td>${list.sDatetime}</td>
-			</tr>
-		</c:forEach>
+				<tr>
+					<th>제목</th>
+					<th>작성일</th>
+				</tr>
+				<c:forEach items="${list}" var="list">
+					<tr>
+						<td><a href="/detail/survey?s_idx=${list.sIdx}">${list.sTitle}</a></td>
+						<td>${list.sDatetime}</td>
+					</tr>
+				</c:forEach>
 			</table>
      </sec:authorize>
 </body>

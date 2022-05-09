@@ -9,4 +9,6 @@ public interface SurveyService {
 	public void insertProcess(Survey survey);
 	
 	public List<Survey> surveyList();
+	
+	public List<Survey> mySurveyList(Survey survey);
 }

@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void createUser(User user) {
 	   userMapper.createUser(user);
+	   userMapper.createAuthority(user);
 	}
 	
 	@Override

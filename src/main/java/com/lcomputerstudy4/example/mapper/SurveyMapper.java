@@ -17,4 +17,6 @@ public interface SurveyMapper {
 	public void insertQuestion(Question question);
 
 	public List<Survey> surveyList();
+	
+	public List<Survey> mySurveyList(Survey survey);
 }

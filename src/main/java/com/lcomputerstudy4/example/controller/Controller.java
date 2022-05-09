@@ -38,14 +38,21 @@ public class Controller {
 	    
 	    
 		
+	   
+	    // 로그인시 사용
+	    if(authentication != null) {
+	     	User user = (User)authentication.getPrincipal();
+			survey.setUser(user);
+			survey.setuIdx(user.getuIdx());
+		    List<Survey> myList = surveyservice.mySurveyList(survey);
+		 
+		    model.addAttribute("myList", myList);
+	    }
+	    
 	    List<Survey> list = surveyservice.surveyList();
-	    User user = (User)authentication.getPrincipal();
-		survey.setUser(user);
-		survey.setuIdx(user.getuIdx());
-		list.add(survey);
-	    
-	    
-	    model.addAttribute("list", list);
+		model.addAttribute("list", list);
+	  
+
 		return "/index";
 	}
 	
@@ -121,6 +128,13 @@ public class Controller {
 	
 	@RequestMapping("/detail/survey")
 	public String surveyDetail(Model model, Survey survey) {
+		
+		
+		return "/surveyDetail";
+	}
+	
+	@RequestMapping("/detail/mySurvey")
+	public String mySurveyDetail(Model model, Survey survey) {
 		
 		
 		return "/surveyDetail";

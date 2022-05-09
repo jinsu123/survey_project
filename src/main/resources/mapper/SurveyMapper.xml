@@ -7,16 +7,29 @@
 <!-- Survey 리스트  -->
 	<select id="surveyList" parameterType="Survey" resultType="Survey">
 	  	      
-	    SELECT                s_idx as sIdx,
+	    SELECT               	s_idx as sIdx,
 	    						u_idx as uIdx,
 	      						s_title as sTitle,
 	      						s_content as sContent,
 	      						s_datetime as sDatetime	
 		FROM	                sur_survey
 		order by 				s_datetime asc		
-	   </select>
+   </select>
 
 
+<!-- My Survey 리스트  -->
+	<select id="mySurveyList" parameterType="Survey" resultType="Survey">
+	  	      
+	    SELECT                	s_idx as sIdx,
+	    						u_idx as uIdx,
+	      						s_title as sTitle,
+	      						s_content as sContent,
+	      						s_datetime as sDatetime	
+		FROM	                sur_survey
+		where					u_idx  = #{uIdx}
+		order by 				s_datetime asc		
+		
+   </select>
 
 
 
