@@ -36,4 +36,8 @@ public class SurveyServiceimpl implements SurveyService{
 		return surveyMapper.mySurveyList(survey);
 	}
 	
+	@Override
+	public Survey getSurvey(Survey survey){
+		return surveyMapper.getSurvey(survey);
+	}
 }

@@ -72,10 +72,18 @@
 					         			( #{qIdx}, #{item.iContent}, #{sIdx})
 		</foreach>		
 	
-		  	
-	
 	</insert>
 
+	<!-- Survey값 가져오기  -->
+	<select id="getSurvey" resultType="Survey">
+	      SELECT         s_idx as sIdx,
+	      				 s_title as sTitle,
+	      				 s_content as sContent,
+	      				 s_datetime as sDatetime,
+	      				 u_idx AS uIdx
+	      FROM           sur_survey
+	      WHERE			 s_idx = #{sIdx}
+	 </select>
 
 
 </mapper>

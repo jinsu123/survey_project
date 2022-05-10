@@ -59,7 +59,7 @@ table{
 						</tr>
 						<c:forEach items="${myList}" var="myList">
 							<tr>
-								<td><a href="/detail/mySurvey?s_idx=${myList.sIdx}">${myList.sTitle}</a></td>
+								<td><a href="/detail/mySurvey?sIdx=${myList.sIdx}">${myList.sTitle}</a></td>
 								<td>${myList.sDatetime}</td>
 							</tr>
 						</c:forEach>
@@ -79,7 +79,7 @@ table{
 				</tr>
 				<c:forEach items="${list}" var="list">
 					<tr>
-						<td><a href="/detail/survey?s_idx=${list.sIdx}">${list.sTitle}</a></td>
+						<td><a href="/detail/survey?sIdx=${list.sIdx}">${list.sTitle}</a></td>
 						<td>${list.sDatetime}</td>
 					</tr>
 				</c:forEach>

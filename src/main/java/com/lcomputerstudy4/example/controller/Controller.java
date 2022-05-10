@@ -128,7 +128,11 @@ public class Controller {
 	
 	@RequestMapping("/detail/survey")
 	public String surveyDetail(Model model, Survey survey) {
+	
+		survey = surveyservice.getSurvey(survey);
 		
+	  
+		model.addAttribute("sur", survey);
 		
 		return "/surveyDetail";
 	}
